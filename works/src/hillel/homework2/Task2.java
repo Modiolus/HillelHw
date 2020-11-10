@@ -13,7 +13,7 @@ public class Task2 {
         for (int i = 0; i < numbers.length; i++) {
             System.out.print("enter " + (i + 1) + " number: ");
             numbers[i] = scan.nextDouble();
-            sum = sum + numbers[i];
+            sum += numbers[i];
 
         }
         double average = sum / enter;
