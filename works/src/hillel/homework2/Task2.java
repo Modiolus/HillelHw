@@ -4,19 +4,18 @@ import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
-        double sum = 0;
+        double sum = 0d;
         Scanner scan = new Scanner(System.in);
         System.out.println("To calculate the arithmetic mean,\nenter the number of numbers");
-        int enter = scan.nextInt();
+        int enterNumber = scan.nextInt();
 
-        double[] numbers = new double[enter];
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = 0; i < enterNumber; i++) {
             System.out.print("enter " + (i + 1) + " number: ");
-            numbers[i] = scan.nextDouble();
-            sum += numbers[i];
+            double number = scan.nextDouble();
+            sum += number;
 
         }
-        double average = sum / enter;
+        double average = sum / enterNumber;
 
         System.out.println("The arithmetic mean is: " + average);
 
