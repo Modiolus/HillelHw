@@ -9,6 +9,6 @@ public class Task12 {
             sum = sum + array[i];
         }
         double average = (double) sum / array.length;
-        System.out.println("Среднее арифметическое всех эелементов массива: " + average);
+        System.out.println("Среднее арифметическое всех элементов массива: " + average);
     }
 }
