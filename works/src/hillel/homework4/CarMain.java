@@ -19,6 +19,7 @@ public class CarMain {
 
         System.out.println("Стоимость полной поездки при трёх заправках: " + (refuelingСost1 + refuelingСost2 + refuelingСost3) + " грн");
         System.out.println("Остаток топлива по приезду в Киев: " + (car.capacity - car.zapravkaMethod(500)) + " л");
+        int a;
 
     }
 }
