@@ -1,6 +1,7 @@
 package hillel.homework5;
 
-public class Cat extends DomesticAnimal {
+
+public class Cat extends DomesticAnimal{
 
     public void catVoice(String name) {
         super.name = name;
