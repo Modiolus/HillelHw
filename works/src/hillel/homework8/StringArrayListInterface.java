@@ -1,25 +1,29 @@
-package hillel.homework7;
+package hillel.homework8;
 
 import java.util.Arrays;
+import java.util.Objects;
 
-public class StringArrayList {
+public class StringArrayListInterface implements InterfaceCollection {
     private String[] elements;
     private int size;
     private static final int DEFAULT_CAPACITY = 10;
 
-    public StringArrayList() {
+    public StringArrayListInterface() {
         this.elements = new String[DEFAULT_CAPACITY];
     }
 
+    @Override
     public String get(int index) {
         return elements[index];
 
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public boolean add(String value) {
 
         if (size == elements.length) {
@@ -39,6 +43,7 @@ public class StringArrayList {
         return temp;
     }
 
+    @Override
     public String add(String value, int index) {
         String[] temp = elements;
         elements = new String[temp.length + 1];
@@ -58,6 +63,7 @@ public class StringArrayList {
         return Arrays.toString(temp);
     }
 
+    @Override
     public String remove(int index) {
         String[] temp = elements;
         elements = new String[temp.length - 1];
@@ -70,6 +76,7 @@ public class StringArrayList {
         return value;
     }
 
+    @Override
     public String remove(String value) {
         int index = 0;
         String[] temp = elements;
@@ -88,8 +95,40 @@ public class StringArrayList {
 
     }
 
+    @Override
+    public boolean clear() {
+        size = 0;
+        return true;
+    }
+
+    @Override
+    public boolean contains(String value) {
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StringArrayListInterface that = (StringArrayListInterface) o;
+        return size == that.size &&
+                Arrays.equals(elements, that.elements);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(size);
+        result = 31 * result + Arrays.hashCode(elements);
+        return result;
+    }
+
     public static void main(String[] args) {
-        StringArrayList str = new StringArrayList();
+        StringArrayListInterface str = new StringArrayListInterface();
         System.out.println("Add value: ");
         str.add("Samsung");
         str.add("Apple");
@@ -103,18 +142,42 @@ public class StringArrayList {
         str.add("Seiko");
         System.out.println(str);
 
+        StringArrayListInterface str2 = new StringArrayListInterface();
+        System.out.println("Add value2: ");
+        str2.add("Samsung");
+        str2.add("Apple");
+        str2.add("Philips");
+        str2.add("Acer");
+        str2.add("Asus");
+        str2.add("Dell");
+        str2.add("Xiaomi");
+        str2.add("HP");
+        str2.add("Lenovo");
+        str2.add("Seiko");
+        System.out.println(str2);
+
+        System.out.println("Comparison: " + str.equals(str2));
+
+        System.out.println("Contains? " + str.contains("Apple"));
+        System.out.println("Contains? " + str.contains("Test"));
+
         System.out.println("Add value and index: ");
         str.add("Test", 1);
         System.out.println(str);
+
         System.out.println("Remove of value: ");
         str.remove("Apple");
         System.out.println(str);
+
         System.out.println("Remove of value on index: ");
         str.remove(4);
         System.out.println(str);
 
         System.out.println("Getting element of 6 index: " + str.get(6));
         System.out.println("Size of array: " + str.size());
+
+        str.clear();
+        System.out.println("Cleared " + str);
 
     }
 }
