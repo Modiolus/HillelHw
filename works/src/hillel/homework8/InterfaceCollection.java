@@ -1,19 +1,20 @@
 package hillel.homework8;
 
 public interface InterfaceCollection {
-    String get(int index);
-
-    int size();
 
     boolean add(String value);
 
-    String add(String value, int index);
+    boolean add(String value, int index);
 
-    String remove(int index);
+    boolean delete(String value);
 
-    String remove(String value);
+    boolean delete(int index);
 
-    boolean contains(String value);
+    String get(int index);
+
+    boolean contain(String value);
 
     boolean clear();
+
+    int size();
 }

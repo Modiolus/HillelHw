@@ -14,6 +14,7 @@ public class StringArrayListInterface implements InterfaceCollection {
 
     @Override
     public String get(int index) {
+        isIndexExist(index);
         return elements[index];
 
     }
@@ -36,15 +37,9 @@ public class StringArrayListInterface implements InterfaceCollection {
         return true;
     }
 
-    private String[] increaseCapacity() {
-        String[] temp = new String[(elements.length * 2)];
-        System.arraycopy(elements, 0, temp, 0, elements.length);
-
-        return temp;
-    }
-
     @Override
-    public String add(String value, int index) {
+    public boolean add(String value, int index) {
+        isIndexExist(index);
         String[] temp = elements;
         elements = new String[temp.length + 1];
 
@@ -52,7 +47,7 @@ public class StringArrayListInterface implements InterfaceCollection {
         System.arraycopy(temp, 0, elements, 0, index);
         System.arraycopy(temp, index, elements, index + 1, temp.length - index);
         size++;
-        return value;
+        return true;
 
     }
 
@@ -64,7 +59,8 @@ public class StringArrayListInterface implements InterfaceCollection {
     }
 
     @Override
-    public String remove(int index) {
+    public boolean delete(int index) {
+        isIndexExist(index);
         String[] temp = elements;
         elements = new String[temp.length - 1];
         String value = temp[index];
@@ -73,11 +69,11 @@ public class StringArrayListInterface implements InterfaceCollection {
         System.arraycopy(temp, index + 1, elements, index, temp.length - index - 1);
 
         size--;
-        return value;
+        return true;
     }
 
     @Override
-    public String remove(String value) {
+    public boolean delete(String value) {
         int index = 0;
         String[] temp = elements;
         elements = new String[temp.length - 1];
@@ -91,18 +87,23 @@ public class StringArrayListInterface implements InterfaceCollection {
         System.arraycopy(temp, index + 1, elements, index, temp.length - index - 1);
 
         size--;
-        return value;
+        return true;
 
     }
 
     @Override
     public boolean clear() {
+        for (int i = 0; i < elements.length; i++) {
+            elements[i] = null;
+
+        }
         size = 0;
+
         return true;
     }
 
     @Override
-    public boolean contains(String value) {
+    public boolean contain(String value) {
         for (int i = 0; i < elements.length; i++) {
             if (elements[i] == value) {
                 return true;
@@ -125,6 +126,22 @@ public class StringArrayListInterface implements InterfaceCollection {
         int result = Objects.hash(size);
         result = 31 * result + Arrays.hashCode(elements);
         return result;
+    }
+
+    private String[] increaseCapacity() {
+        String[] temp = new String[(elements.length * 2)];
+        System.arraycopy(elements, 0, temp, 0, elements.length);
+
+        return temp;
+    }
+
+    private int isIndexExist(int index) {
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException("Element can`t be found! " + "Number of elements in array = " + size +
+                    ". Total size of array = " + elements.length);
+
+        }
+        return index;
     }
 
     public static void main(String[] args) {
@@ -158,20 +175,22 @@ public class StringArrayListInterface implements InterfaceCollection {
 
         System.out.println("Comparison: " + str.equals(str2));
 
-        System.out.println("Contains? " + str.contains("Apple"));
-        System.out.println("Contains? " + str.contains("Test"));
+        System.out.println("Contains? " + str.contain("Apple"));
+        System.out.println("Contains? " + str.contain("Test"));
 
         System.out.println("Add value and index: ");
         str.add("Test", 1);
         System.out.println(str);
 
-        System.out.println("Remove of value: ");
-        str.remove("Apple");
+
+        System.out.println("Delete of value: ");
+        str.delete("Apple");
         System.out.println(str);
 
-        System.out.println("Remove of value on index: ");
-        str.remove(4);
+        System.out.println("Delete of value on index: ");
+        str.delete(4);
         System.out.println(str);
+
 
         System.out.println("Getting element of 6 index: " + str.get(6));
         System.out.println("Size of array: " + str.size());
