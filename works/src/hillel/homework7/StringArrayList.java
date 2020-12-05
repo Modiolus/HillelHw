@@ -12,6 +12,7 @@ public class StringArrayList {
     }
 
     public String get(int index) {
+        isIndexExist(index);
         return elements[index];
 
     }
@@ -32,14 +33,8 @@ public class StringArrayList {
         return true;
     }
 
-    private String[] increaseCapacity() {
-        String[] temp = new String[(elements.length * 2)];
-        System.arraycopy(elements, 0, temp, 0, elements.length);
-
-        return temp;
-    }
-
-    public String add(String value, int index) {
+    public boolean add(String value, int index) {
+        isIndexExist(index);
         String[] temp = elements;
         elements = new String[temp.length + 1];
 
@@ -47,7 +42,7 @@ public class StringArrayList {
         System.arraycopy(temp, 0, elements, 0, index);
         System.arraycopy(temp, index, elements, index + 1, temp.length - index);
         size++;
-        return value;
+        return true;
 
     }
 
@@ -58,7 +53,8 @@ public class StringArrayList {
         return Arrays.toString(temp);
     }
 
-    public String remove(int index) {
+    public boolean delete(int index) {
+        isIndexExist(index);
         String[] temp = elements;
         elements = new String[temp.length - 1];
         String value = temp[index];
@@ -67,10 +63,10 @@ public class StringArrayList {
         System.arraycopy(temp, index + 1, elements, index, temp.length - index - 1);
 
         size--;
-        return value;
+        return true;
     }
 
-    public String remove(String value) {
+    public boolean delete(String value) {
         int index = 0;
         String[] temp = elements;
         elements = new String[temp.length - 1];
@@ -84,8 +80,24 @@ public class StringArrayList {
         System.arraycopy(temp, index + 1, elements, index, temp.length - index - 1);
 
         size--;
-        return value;
+        return true;
 
+    }
+
+    private String[] increaseCapacity() {
+        String[] temp = new String[(elements.length * 2)];
+        System.arraycopy(elements, 0, temp, 0, elements.length);
+
+        return temp;
+    }
+
+    private int isIndexExist(int index) {
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException("Element can`t be found! " + "Number of elements in array = " + size +
+                    ". Total size of array = " + elements.length);
+
+        }
+        return index;
     }
 
     public static void main(String[] args) {
@@ -106,11 +118,11 @@ public class StringArrayList {
         System.out.println("Add value and index: ");
         str.add("Test", 1);
         System.out.println(str);
-        System.out.println("Remove of value: ");
-        str.remove("Apple");
+        System.out.println("Delete of value: ");
+        str.delete("Apple");
         System.out.println(str);
-        System.out.println("Remove of value on index: ");
-        str.remove(4);
+        System.out.println("Delete of value on index: ");
+        str.delete(4);
         System.out.println(str);
 
         System.out.println("Getting element of 6 index: " + str.get(6));
