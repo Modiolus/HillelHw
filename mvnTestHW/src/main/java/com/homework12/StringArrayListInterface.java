@@ -145,5 +145,61 @@ public class StringArrayListInterface implements InterfaceCollection {
         }
         return index;
     }
+    public static void main(String[] args) {
+        StringArrayListInterface str = new StringArrayListInterface();
+        System.out.println("Add value: ");
+        str.add("Samsung");
+        str.add("Apple");
+        str.add("Philips");
+        str.add("Acer");
+        str.add("Asus");
+        str.add("Dell");
+        str.add("Xiaomi");
+        str.add("HP");
+        str.add("Lenovo");
+        str.add("Seiko");
+        System.out.println(str);
+
+        StringArrayListInterface str2 = new StringArrayListInterface();
+        System.out.println("Add value2: ");
+        str2.add("Samsung");
+        str2.add("Apple");
+        str2.add("Philips");
+        str2.add("Acer");
+        str2.add("Asus");
+        str2.add("Dell");
+        str2.add("Xiaomi");
+        str2.add("HP");
+        str2.add("Lenovo");
+        str2.add("Seiko");
+        System.out.println(str2);
+
+        System.out.println("Comparison: " + str.equals(str2));
+
+        System.out.println("Contains? " + str.contain("Apple"));
+        System.out.println("Contains? " + str.contain("Test"));
+
+        System.out.println("Add value and index: ");
+        str.add("Test", 1);
+        System.out.println(str);
+
+
+        System.out.println("Delete of value: ");
+        str.delete("Apple");
+        System.out.println(str);
+
+        System.out.println("Delete of value on index: ");
+        str.delete(4);
+        System.out.println(str);
+
+
+        System.out.println("Getting element of 6 index: " + str.get(6));
+        System.out.println("Size of array: " + str.size());
+
+        str.clear();
+        System.out.println("Cleared " + str);
+        System.out.println("Size after clear: " + str.size);
+
+    }
 
 }
