@@ -24,6 +24,12 @@ public class StringArrayListInterfaceTest {
     }
 
     @Test
+    public void testGetNeg() {
+        Assertions.assertNotEquals("Acer", str.get(3));
+
+    }
+
+    @Test
     public void testAddValue() {
         Assertions.assertEquals(true, str.add("Apple"));
     }
@@ -33,14 +39,22 @@ public class StringArrayListInterfaceTest {
         Assertions.assertEquals(true, str.add("Samsung", 0));
     }
 
+
     @Test
     public void testDeleteIndex() {
         Assertions.assertEquals(true, str.delete(3));
     }
 
     @Test
+    public void testDeleteIndexNeg() {
+
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> str.delete(5));
+
+    }
+
+    @Test
     public void testDeleteValue() {
-        Assertions.assertEquals(true, str.delete(3));
+        Assertions.assertEquals(true, str.delete("fdfd"));
     }
 
     @Test
@@ -52,6 +66,11 @@ public class StringArrayListInterfaceTest {
     @Test
     public void testContain() {
         Assertions.assertTrue(str.contain("Xiaomi"));
+    }
+
+    @Test
+    public void testContainNeg() {
+        Assertions.assertFalse(str.contain("Acer"));
     }
 
     @Test
