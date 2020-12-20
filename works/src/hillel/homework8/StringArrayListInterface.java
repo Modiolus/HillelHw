@@ -143,6 +143,9 @@ public class StringArrayListInterface implements InterfaceCollection {
         }
         return index;
     }
+    public void Test() {
+
+    }
 
     public static void main(String[] args) {
         StringArrayListInterface str = new StringArrayListInterface();
