@@ -3,7 +3,7 @@ package com.homework12;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class StringArrayListInterface {
+public class StringArrayListInterface implements InterfaceCollection {
 
     private String[] elements;
     private int size;
@@ -13,19 +13,20 @@ public class StringArrayListInterface {
         this.elements = new String[DEFAULT_CAPACITY];
     }
 
-   // @Override
+    @Override
+
     public String get(int index) {
         isIndexExist(index);
         return elements[index];
 
     }
 
- //   @Override
+    @Override
     public int size() {
         return size;
     }
 
- //   @Override
+    @Override
     public boolean add(String value) {
 
         if (size == elements.length) {
@@ -38,7 +39,7 @@ public class StringArrayListInterface {
         return true;
     }
 
-  //  @Override
+    @Override
     public boolean add(String value, int index) {
         isIndexExist(index);
         String[] temp = elements;
@@ -52,14 +53,14 @@ public class StringArrayListInterface {
 
     }
 
-   // @Override
+    @Override
     public String toString() {
         String[] temp = new String[size];
         System.arraycopy(elements, 0, temp, 0, size);
         return Arrays.toString(temp);
     }
 
-   // @Override
+    @Override
     public boolean delete(int index) {
         isIndexExist(index);
         String[] temp = elements;
@@ -73,7 +74,7 @@ public class StringArrayListInterface {
         return true;
     }
 
-   // @Override
+    @Override
     public boolean delete(String value) {
         int index = 0;
         String[] temp = elements;
@@ -92,7 +93,7 @@ public class StringArrayListInterface {
 
     }
 
-   // @Override
+    @Override
     public boolean clear() {
         for (int i = 0; i < elements.length; i++) {
             elements[i] = null;
@@ -103,7 +104,7 @@ public class StringArrayListInterface {
         return true;
     }
 
-   // @Override
+    @Override
     public boolean contain(String value) {
         for (int i = 0; i < elements.length; i++) {
             if (elements[i] == value) {

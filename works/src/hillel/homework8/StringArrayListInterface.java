@@ -197,6 +197,7 @@ public class StringArrayListInterface implements InterfaceCollection {
 
         str.clear();
         System.out.println("Cleared " + str);
+        System.out.println("Size after clear: " + str.size);
 
     }
 }
