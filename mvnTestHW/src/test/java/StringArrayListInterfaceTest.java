@@ -54,7 +54,7 @@ public class StringArrayListInterfaceTest {
 
     @Test
     public void testDeleteValue() {
-        Assertions.assertEquals(true, str.delete("fdfd"));
+        Assertions.assertEquals(true, str.delete("Apple"));
     }
 
     @Test
