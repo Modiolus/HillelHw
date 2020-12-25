@@ -1,7 +1,7 @@
 package hillel.homework8;
 
 public interface InterfaceCollection {
-    //int a; //убрать
+
     boolean add(String value);
 
     boolean add(String value, int index);
