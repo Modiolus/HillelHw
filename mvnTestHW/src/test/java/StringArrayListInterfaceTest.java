@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 public class StringArrayListInterfaceTest {
 
     private StringArrayListInterface str;
+    int a; //убрать
 
     @BeforeEach
     public void fill() {

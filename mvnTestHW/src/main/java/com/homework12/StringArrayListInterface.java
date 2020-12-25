@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class StringArrayListInterface implements InterfaceCollection {
-
+    int a; //убрать
     private String[] elements;
     private int size;
     private static final int DEFAULT_CAPACITY = 10;
