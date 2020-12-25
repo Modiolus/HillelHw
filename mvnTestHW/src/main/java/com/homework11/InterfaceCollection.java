@@ -1,4 +1,4 @@
-package com.homework12;
+package com.homework11;
 
 public interface InterfaceCollection {
     boolean add(String value);
