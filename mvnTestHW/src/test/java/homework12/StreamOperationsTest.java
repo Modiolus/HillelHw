@@ -20,7 +20,6 @@ public class StreamOperationsTest {
         List<String> str = List.of("one", "two", "three", "four");
         Map<String, String> map = str.stream()
                 .collect(Collectors.toMap(i -> i, i -> i.toUpperCase()));
-
         Assertions.assertEquals(map, StreamOperations.toUpper(str));
     }
     @Test
