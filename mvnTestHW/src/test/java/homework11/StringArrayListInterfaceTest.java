@@ -1,3 +1,5 @@
+package homework11;
+
 import com.homework11.StringArrayListInterface;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
