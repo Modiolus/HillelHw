@@ -4,9 +4,6 @@ public enum RockPaperScissors {
     ROCK,
     PAPER,
     SCISSORS;
-    int num;
 
-    int getNum(){
-        return num;
-    }
+
 }
