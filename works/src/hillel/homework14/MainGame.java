@@ -1,12 +1,11 @@
 package hillel.homework14;
 
 import java.io.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class MainGame {
+    int a;
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите язык: \n1 - українська, 2 - русский, 3 - english ");

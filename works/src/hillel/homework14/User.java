@@ -1,6 +1,7 @@
 package hillel.homework14;
 
 public class User {
+int a;
     private String name;
 
 
