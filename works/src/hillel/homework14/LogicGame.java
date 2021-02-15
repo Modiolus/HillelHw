@@ -7,7 +7,7 @@ public class LogicGame {
     static int countGames = 0;
     static int scoringComp = 0;
     static int scoringUser = 0;
-int a;
+
     static void codeGame() throws IOException {
         User user = new User();
         System.out.println(ResManager.getString("inputName"));
