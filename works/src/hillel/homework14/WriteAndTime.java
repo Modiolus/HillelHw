@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class WriteAndTime {
-
+int a;
     public static void write (String st) throws IOException {
         File appDirectory = new File(FileSystems.getDefault()
                 .getPath("")

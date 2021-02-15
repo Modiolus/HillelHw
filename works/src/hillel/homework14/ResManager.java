@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ResManager {
-
+int a;
     private static ResourceBundle resourceBundle;
     private static final String resourceName = "hillel.homework14.languages.lang";
 
