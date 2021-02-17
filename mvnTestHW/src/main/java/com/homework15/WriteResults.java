@@ -11,7 +11,7 @@ public class WriteResults {
         File appDirectory = new File(FileSystems.getDefault()
                 .getPath("")
                 .toAbsolutePath()
-                .toString() + "\\converted");
+                .toString()+ "\\converted");
         appDirectory.mkdir();
 
         File dirFile = new File(appDirectory, fileName);
@@ -19,7 +19,7 @@ public class WriteResults {
         FileWriter writer = new FileWriter(dirFile, true);
         BufferedWriter bufferWriter = new BufferedWriter(writer);
         bufferWriter.write(st);
-        //  writer.append("\n");
+        writer.append("\n");
         bufferWriter.close();
 
 
